@@ -5,11 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sound & Light Rental - Company Profile</title>
     <link rel="stylesheet" href="style.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <header>
-        <div class="logo">Extreme'D Audio & Enterprise</div>
+        <div class="logo">Extreme'D Pro Audio</div>
         <nav>
             <a href="#home">Home</a>
             <a href="#services">Layanan</a>
@@ -22,32 +26,19 @@
         <div class="hero-text">
             <h1>Sewa Sound System & Lighting Berkualitas</h1>
             <p>Menyediakan kualitas audio dan pencahayaan terbaik untuk konser, pernikahan, dan event perusahaan.</p>
-            <a href="#gallery" class="cta-btn">Lihat Portofolio</a>
+            <a href="#gallery" id="ctaPortofolio" class="cta-btn">Lihat Portofolio Kami</a>
         </div>
     </section>
-    <section class="stats-section">
-    <div class="stat-box">
-        <h2 class="counter" data-target="150">0</h2>
-        <p>Event Sukses</p>
-    </div>
-    <div class="stat-box">
-        <h2 class="counter" data-target="50">0</h2>
-        <p>Total Item Sound & Lighting</p>
-    </div>
-    <div class="stat-box">
-        <h2 class="counter" data-target="99">0</h2>
-        <p>% Klien Puas</p>
-    </div>
-    </section>
+
     <section id="services" class="services">
         <h2>Layanan Kami</h2>
         <div class="card-container">
             <div class="card">
-                <h3>🔊 Sound System</h3>
+                <h3>Professional Audio System</h3>
                 <p>Paket sound untuk indoor & outdoor dengan kualitas kejernihan suara tingkat tinggi.</p>
             </div>
             <div class="card">
-                <h3>💡 Professional Lighting</h3>
+                <h3>Professional Lighting</h3>
                 <p>Moving beam, par LED, strobe, dan efek panggung untuk menghidupkan suasana event Anda.</p>
             </div>
         </div>
@@ -56,90 +47,48 @@
     <section id="gallery" class="gallery">
         <h2>Galeri Event Terakhir</h2>
         <div class="gallery-grid" id="galleryGrid">
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=500" alt="Event 1"><p>Konser Pestival Music</p></div>
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1465847899084-d164df4dedc6?q=80&w=500" alt="Event 2"><p>Wedding Party</p></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=500" alt="Event 1"><p>Konser Festival Music Pererenan</p></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1618107095181-e3ba0f53ee59?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8a29uc2VyJTIwZXZlbnQlMjB3ZWRkaW5nfGVufDB8fDB8fHww" alt="Event 2"><p>Wedding Party Ubud</p></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1577042816206-2e85c23f2392?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGtvbnNlciUyMGV2ZW50JTIwd2VkZGluZ3xlbnwwfHwwfHx8MA%3D%3D" alt="Event 3"><p>Konser Amal Uluwatu</p></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1585230699768-a31a4d76e48f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8a29uc2VyfGVufDB8fDB8fHww" alt="Event 4"><p>Konser Music DMG Munggu</p></div>
+            <div class="gallery-item"><img src="https://plus.unsplash.com/premium_photo-1664303684636-77e29786329b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8a29uc2VyfGVufDB8fDB8fHww" alt="Event 5"><p>Festival Music Kuta</p></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1713592231622-34097be8e1e1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8a29uc2VyfGVufDB8fDB8fHww" alt="Event 6"><p>Private Party Canggu</p></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1646177184147-06d8976a2656?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8a29uc2VyJTIwd2VkZGluZ3xlbnwwfHwwfHx8MA%3D%3D" alt="Event 7"><p>Wedding Party Uluwatu</p></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1712764995301-995e730b6147?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGtvbnNlciUyMHdlZGRpbmd8ZW58MHx8MHx8fDA%3D" alt="Event 8"><p>Wedding Party Seminyak</p></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1775126964224-99c03c0e439c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGtvbnNlciUyMHdlZGRpbmd8ZW58MHx8MHx8fDA%3D" alt="Event 9"><p>Private Party Uluwatu</p></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1727096857692-e9dadf2bc92e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8TGlnaHRpbmclMjBldmVudHxlbnwwfHwwfHx8MA%3D%3D" alt="Event 10"><p>Lighting System</p></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1670420421505-804c23232098?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fExpZ2h0aW5nJTIwZXZlbnR8ZW58MHx8MHx8fDA%3D" alt="Event 11"><p>Audio System</p></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1651065699638-a50bf6e63bc3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fExpZ2h0aW5nJTIwZXZlbnR8ZW58MHx8MHx8fDA%3D" alt="Event 12"><p>Lighting System</p></div>
         </div>
     </section>
 
     <footer>
-        <div class="footer-container">
-            <!-- Kolom Kontak / WhatsApp -->
-            <div class="footer-section">
-                <h3>Hubungi Kami</h3>
-                <p>Siap memeriahkan event Anda 24/7. Konsultasikan kebutuhan sound & lighting Anda sekarang!</p>
-                <!-- Ganti nomor di bawah dengan nomor WhatsApp Anda (gunakan kode negara 62) -->
-                <a href="https://wa.me/6285162575611?text=Halo%20SoundLight%20Pro,%20saya%20tertarik%20untuk%20rental..." target="_blank" class="wa-btn">
-                    <i class="fab fa-whatsapp"></i> Hubungi via WhatsApp
-                </a>
-            </div>
-
-            <!-- Kolom Media Sosial -->
-            <div class="footer-section">
-                <h3>Ikuti Kami</h3>
-                <p>Lihat update dokumentasi event terbaru kami di media sosial:</p>
-                <div class="social-icons">
-                    <a href="https://instagram.com/username_anda" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://facebook.com/username_anda" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
-                    <a href="https://youtube.com/username_anda" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
-                    <a href="https://tiktok.com/@username_anda" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2026 SoundLight Pro. All Rights Reserved.</p>
+       <div class="footer-section">
+            <h3>Hubungi Kami</h3>
+            <p>Miliki rencana event atau anggaran khusus? Diskusikan dan negosiasikan penawaran harga terbaik untuk sound & lighting bersama tim kami.</p>
+            
+            <a href="https://wa.me/6281234567890?text=Halo%20SoundLight%20Pro,%20saya%20ingin%20berdiskusi%20dan%20negosiasi%20mengenai%20harga%20sewa%20sound%20system%20/%20lighting%20untuk%20event%20saya." target="_blank" class="wa-btn-nego">
+                <i class="fab fa-whatsapp wa-icon"></i> Hubungi Kami
+            </a>
+            <p>2004 Extreme'D audio Pro. All Rights Reserved.</p>
         </div>
     </footer>
-<script>
-        // Fungsi untuk memuat foto dari LocalStorage
-        function loadGallery() {
-            const galleryGrid = document.getElementById('galleryGrid');
-            const localData = localStorage.getItem('eventGallery');
-            
-            // Jika ada data di LocalStorage, tampilkan
-            if (localData) {
-                const events = JSON.parse(localData);
-                
-                // Kosongkan dulu galeri default (opsional, agar tidak menumpuk)
-                galleryGrid.innerHTML = ''; 
-                
-                events.forEach(event => {
-                    const item = document.createElement('div');
-                    item.className = 'gallery-item';
-                    item.innerHTML = `
-                        <img src="${event.img}" alt="${event.title}">
-                        <p>${event.title}</p>
-                    `;
-                    galleryGrid.appendChild(item);
-                });
-            }
-        }
+         <script>
+            // --- FITUR SCROLL HALUS TOMBOL PORTOFOLIO ---
+            const btnPortofolio = document.getElementById('ctaPortofolio');
 
-        // Jalankan fungsi saat halaman index dibuka
-        window.onload = loadGallery;
-        // --- FITUR COUNTER ANGKA BERJALAN ---
-    const counters = document.querySelectorAll('.counter');
-    
-    counters.forEach(counter => {
-        counter.innerText = '0';
-        
-        const updateCounter = () => {
-            const target = +counter.getAttribute('data-target'); // Mengubah string ke angka
-            const count = +counter.innerText;
-            
-            // Mengatur kecepatan bertambahnya angka
-            const increment = target / 50; 
-            
-            if(count < target) {
-                counter.innerText = `${Math.ceil(count + increment)}`;
-                setTimeout(updateCounter, 30); // Ulangi setiap 30 milidetik
-            } else {
-                counter.innerText = target + (target === 99 ? '%' : '+'); // Beri tanda % atau + di akhir
-            }
-        };
-        
-        updateCounter();
-    });
-    </script>
+            btnPortofolio.addEventListener('click', function(e) {
+                e.preventDefault(); // Mencegah lompatan instan bawaan link HTML
+                
+                // Ambil elemen target yaitu section gallery
+                const targetSection = document.getElementById('gallery');
+                
+                // Lakukan scroll dengan efek halus (smooth)
+                targetSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start' // Berhenti tepat di bagian atas section gallery
+                });
+            });
+        </script>
 </body>
 </html>

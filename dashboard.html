@@ -5,13 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Admin - Upload Event</title>
     <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
 </head>
 <body class="bg-dash">
 
-    <div class="dashboard-container">
+    <div id="loginContainer" class="dashboard-container" style="max-width: 400px; margin-top: 100px;">
+        <h2 style="text-align: center; margin-bottom: 20px; color: #ff0055;">🔑 Admin Login</h2>
+        <form id="loginForm" style="display: flex; flex-direction: column;">
+            <label style="margin-bottom: 8px; color: #aaa;">Username</label>
+            <input type="text" id="username" placeholder="Masukkan username" style="padding: 12px; background: #2a2a35; border: 1px solid #444; color: #fff; border-radius: 5px; margin-bottom: 20px;" required>
+
+            <label style="margin-bottom: 8px; color: #aaa;">Password</label>
+            <input type="password" id="password" placeholder="Masukkan password" style="padding: 12px; background: #2a2a35; border: 1px solid #444; color: #fff; border-radius: 5px; margin-bottom: 25px;" required>
+
+            <button type="submit" class="btn-submit">Masuk ke Dashboard</button>
+            <a href="index.html" style="text-align: center; color: #666; margin-top: 15px; text-decoration: none; font-size: 14px;">Kembali ke Website</a>
+        </form>
+    </div>
+
+    <div id="mainDashboard" class="dashboard-container" style="max-width: 800px; display: none;">
         <header class="dash-header">
-            <h2>Dashboard Admin</h2>
-            <a href="index.html" class="btn-back">Kembali ke Web</a>
+            <div>
+                <h2>Dashboard Admin</h2>
+                <small style="color: #666;">Login sebagai: <span id="userDisplay" style="color: #ff0055; font-weight: bold;"></span></small>
+            </div>
+            <div>
+                <button id="btnLogout" style="background: #444; color: #fff; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; margin-right: 10px;">Logout</button>
+                <a href="index.html" class="btn-back">Kembali ke Web</a>
+            </div>
         </header>
 
         <main class="dash-content">
@@ -21,45 +45,144 @@
                     <label>Nama/Judul Event</label>
                     <input type="text" id="eventTitle" placeholder="Contoh: Konser Band Indie" required>
 
-                    <label>Link Foto (URL) / Pilih File</label>
-                    <input type="text" id="eventImg" placeholder="Masukkan URL Gambar (sementara)" required>
+                    <label>Link Foto (URL)</label>
+                    <input type="text" id="eventImg" placeholder="Masukkan URL Gambar" required>
                     
                     <button type="submit" class="btn-submit">Simpan & Publikasikan</button>
                 </form>
             </div>
+
+            <div class="manage-box" style="margin-top: 40px;">
+                <h3>Daftar Foto Galeri Saat Ini</h3>
+                <table id="crudTable" style="width: 100%; border-collapse: collapse; margin-top: 15px; color: #fff; text-align: left;">
+                    <thead>
+                        <tr style="border-bottom: 2px solid #ff0055; background: #2a2a35;">
+                            <th style="padding: 10px;">Preview</th>
+                            <th style="padding: 10px;">Judul Event</th>
+                            <th style="padding: 10px; text-align: center;">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        </tbody>
+                </table>
+            </div>
         </main>
     </div>
 
-   <script>
-        const uploadForm = document.getElementById('uploadForm');
+    </body>
+    <script>
+    // --- PENGATURAN KREDENSIAL LOGIN (Silakan Ubah Sesuai Keinginan Anda) ---
+    const ADMIN_USERNAME = "admin";
+    const ADMIN_PASSWORD = "audio123";
 
-        uploadForm.addEventListener('submit', function(e) {
-            e.preventDefault(); // Mencegah halaman refresh saat submit
-            
-            const title = document.getElementById('eventTitle').value;
-            const imgUrl = document.getElementById('eventImg').value;
+    // Element Selector
+    const loginForm = document.getElementById('loginForm');
+    const loginContainer = document.getElementById('loginContainer');
+    const mainDashboard = document.getElementById('mainDashboard');
+    const userDisplay = document.getElementById('userDisplay');
+    const btnLogout = document.getElementById('btnLogout');
+    
+    const uploadForm = document.getElementById('uploadForm');
+    const tableBody = document.getElementById('tableBody');
 
-            // 1. Ambil data lama dari LocalStorage (jika ada), jika belum ada buat array kosong
-            let currentEvents = localStorage.getItem('eventGallery');
-            if (currentEvents) {
-                currentEvents = JSON.parse(currentEvents);
-            } else {
-                currentEvents = [];
-            }
+    // --- 1. FITUR AUTENTIKASI (LOGIN & LOGOUT) ---
+    
+    // Fungsi untuk memeriksa apakah admin sudah login sebelumnya (cek SessionStorage)
+    function checkLoginStatus() {
+        const loggedInUser = sessionStorage.getItem('isLoggedIn');
+        if (loggedInUser === 'true') {
+            // Sembunyikan form login, tampilkan dashboard
+            loginContainer.style.display = 'none';
+            mainDashboard.style.display = 'block';
+            userDisplay.innerText = ADMIN_USERNAME;
+            renderTable(); // Jalankan fungsi baca data galeri
+        } else {
+            // Tampilkan form login, sembunyikan dashboard
+            loginContainer.style.display = 'block';
+            mainDashboard.style.display = 'none';
+        }
+    }
 
-            // 2. Tambahkan data event baru ke dalam array
-            currentEvents.push({
-                title: title,
-                img: imgUrl
-            });
+    // Event ketika form login disubmit
+    loginForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const inputUser = document.getElementById('username').value;
+        const inputPass = document.getElementById('password').value;
 
-            // 3. Simpan kembali array yang diperbarui ke LocalStorage
-            localStorage.setItem('eventGallery', JSON.stringify(currentEvents));
-            
-            // 4. Beri notifikasi sukses dan reset form
-            alert('Foto event "' + title + '" berhasil diterbitkan ke halaman utama!');
-            uploadForm.reset();
+        if (inputUser === ADMIN_USERNAME && inputPass === ADMIN_PASSWORD) {
+            // Simpan status login di session (hilang saat browser ditutup)
+            sessionStorage.setItem('isLoggedIn', 'true');
+            alert('Login Berhasil! Selamat datang admin.');
+            checkLoginStatus();
+        } else {
+            alert('Username atau Password salah! Silakan coba lagi.');
+        }
+    });
+
+    // Event ketika tombol logout diklik
+    btnLogout.addEventListener('click', function() {
+        sessionStorage.removeItem('isLoggedIn');
+        alert('Anda telah keluar dari dashboard.');
+        checkLoginStatus();
+    });
+
+
+    // --- 2. FITUR CRUD GALERI (Dari Tahap Sebelumnya) ---
+
+    function renderTable() {
+        let currentEvents = localStorage.getItem('eventGallery');
+        currentEvents = currentEvents ? JSON.parse(currentEvents) : [];
+        tableBody.innerHTML = '';
+
+        if (currentEvents.length === 0) {
+            tableBody.innerHTML = `<tr><td colspan="3" style="text-align:center; padding: 20px; color: #666;">Belum ada foto event.</td></tr>`;
+            return;
+        }
+
+        currentEvents.forEach((event, index) => {
+            const row = document.createElement('tr');
+            row.style.borderBottom = '1px solid #333';
+            row.innerHTML = `
+                <td style="padding: 10px;">
+                    <img src="${event.img}" alt="${event.title}" style="width: 70px; height: 50px; object-fit: cover; border-radius: 4px;">
+                </td>
+                <td style="padding: 10px; font-weight: 500;">${event.title}</td>
+                <td style="padding: 10px; text-align: center;">
+                    <button onclick="deleteEvent(${index})" style="background: #ff0055; color: #fff; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 13px;">Hapus</button>
+                </td>
+            `;
+            tableBody.appendChild(row);
         });
-    </script>
-</body>
+    }
+
+    uploadForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const title = document.getElementById('eventTitle').value;
+        const imgUrl = document.getElementById('eventImg').value;
+
+        let currentEvents = localStorage.getItem('eventGallery');
+        currentEvents = currentEvents ? JSON.parse(currentEvents) : [];
+
+        currentEvents.unshift({ title: title, img: imgUrl });
+        localStorage.setItem('eventGallery', JSON.stringify(currentEvents));
+        
+        alert('Foto event berhasil ditambahkan!');
+        uploadForm.reset();
+        renderTable();
+    });
+
+    function deleteEvent(index) {
+        let currentEvents = localStorage.getItem('eventGallery');
+        currentEvents = currentEvents ? JSON.parse(currentEvents) : [];
+
+        if (confirm(`Apakah Anda yakin ingin menghapus foto "${currentEvents[index].title}"?`)) {
+            currentEvents.splice(index, 1);
+            localStorage.setItem('eventGallery', JSON.stringify(currentEvents));
+            renderTable();
+        }
+    }
+
+    // Jalankan pengecekan login saat halaman dimuat
+    window.onload = checkLoginStatus;
+</script>
 </html>

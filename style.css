@@ -131,91 +131,11 @@ nav a:hover {
 }
 
 /* Footer */
-/* --- Pembaruan Style Footer --- */
 footer {
-    background: #16161a;
-    padding: 50px 5% 20px 5%;
-    border-top: 3px solid #ff0055;
-    color: #fff;
-}
-
-.footer-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 40px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.footer-section {
-    flex: 1;
-    min-width: 280px;
-}
-
-.footer-section h3 {
-    font-size: 20px;
-    color: #ff0055;
-    margin-bottom: 15px;
-}
-
-.footer-section p {
-    color: #aaa;
-    font-size: 14px;
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-
-/* Tombol WhatsApp */
-.wa-btn {
-    display: inline-block;
-    background: #25D366;
-    color: #fff;
-    padding: 12px 20px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: 0.3s;
-    font-size: 15px;
-}
-
-.wa-btn:hover {
-    background: #20ba5a;
-    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-}
-
-/* Ikon Media Sosial */
-.social-icons {
-    display: flex;
-    gap: 15px;
-}
-
-.social-icons a {
-    color: #fff;
-    background: #2a2a35;
-    width: 45px;
-    height: 45px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    font-size: 20px;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-.social-icons a:hover {
-    background: #ff0055;
-    transform: translateY(-5px);
-}
-
-/* Hak Cipta Bawah */
-.footer-bottom {
     text-align: center;
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 1px solid #2a2a35;
-    font-size: 13px;
+    padding: 20px;
+    background: #1a1a1a;
+    font-size: 14px;
     color: #666;
 }
 
@@ -269,21 +189,55 @@ footer {
     border-radius: 5px;
     cursor: pointer;
 }
-/* Style untuk Section Statistik */
-.stats-section {
-    display: flex;
-    justify-content: space-around;
+/* --- TOMBOL NEGO HARGA DENGAN LOGO WHATSAPP --- */
+.wa-btn-nego {
+    display: inline-flex;
     align-items: center;
-    padding: 40px 5%;
-    background: #ff0055;
-    color: white;
-    text-align: center;
-}
-.stat-box h2 {
-    font-size: 40px;
-    margin-bottom: 5px;
-}
-.stat-box p {
+    justify-content: center;
+    background-color: #25D366; /* Warna Hijau Resmi WhatsApp */
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
     font-size: 16px;
-    font-weight: 500;
+    padding: 12px 24px;
+    border-radius: 8px;
+    gap: 10px; /* Jarak antara logo WhatsApp dan Teks */
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    transition: all 0.3s ease;
+    margin-bottom: 25px;
+}
+
+/* Mengatur Ukuran Logo WhatsApp di Dalam Tombol */
+.wa-btn-nego .wa-icon {
+    font-size: 22px; 
+}
+
+/* Efek Interaktif Saat Kursor Menyorot Tombol (Hover) */
+.wa-btn-nego:hover {
+    background-color: #1ebd54; /* Warna hijau sedikit lebih gelap saat di-hover */
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+    transform: translateY(-3px); /* Tombol sedikit terangkat */
+}
+
+/* Efek Saat Tombol Diklik (Active) */
+.wa-btn-nego:active {
+    transform: translateY(-1px);
+}
+.footer-section p {
+    color: #aaa;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 25px; /* <--- Tambah atau perbesar nilai ini untuk mengatur jarak spasi ke bawah */
+}
+/* --- Desain Font Baru untuk Logo --- */
+.logo {
+    font-family: 'Orbitron', sans-serif; /* Mengubah font khusus untuk logo */
+    font-size: 26px;
+    font-weight: 700; /* Membuat tulisan tebal */
+    color: #ff0055;
+    letter-spacing: 1px; /* Memberi jarak tipis antar huruf agar estetik */
+    text-transform: uppercase; /* Membuat semua huruf menjadi kapital (opsional) */
+    
+    /* Efek opsional: memberi sedikit kilauan lampu neon pada teks logo */
+    text-shadow: 0 0 10px rgba(255, 0, 85, 0.3); 
 }
