@@ -30,19 +30,35 @@
         </main>
     </div>
 
-    <script>
-        // Simulasi logika penyimpanan sementara menggunakan LocalStorage
-        document.getElementById('uploadForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+   <script>
+        const uploadForm = document.getElementById('uploadForm');
+
+        uploadForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Mencegah halaman refresh saat submit
             
             const title = document.getElementById('eventTitle').value;
             const imgUrl = document.getElementById('eventImg').value;
 
-            // Catatan: Ini hanya simulasi frontend lokal agar Anda paham alurnya.
-            alert('Foto "' + title + '" berhasil ditambahkan! (Simulasi)');
+            // 1. Ambil data lama dari LocalStorage (jika ada), jika belum ada buat array kosong
+            let currentEvents = localStorage.getItem('eventGallery');
+            if (currentEvents) {
+                currentEvents = JSON.parse(currentEvents);
+            } else {
+                currentEvents = [];
+            }
+
+            // 2. Tambahkan data event baru ke dalam array
+            currentEvents.push({
+                title: title,
+                img: imgUrl
+            });
+
+            // 3. Simpan kembali array yang diperbarui ke LocalStorage
+            localStorage.setItem('eventGallery', JSON.stringify(currentEvents));
             
-            // Reset form
-            document.getElementById('uploadForm').reset();
+            // 4. Beri notifikasi sukses dan reset form
+            alert('Foto event "' + title + '" berhasil diterbitkan ke halaman utama!');
+            uploadForm.reset();
         });
     </script>
 </body>

@@ -9,7 +9,7 @@
 <body>
 
     <header>
-        <div class="logo">🎛️ SoundLight Pro</div>
+        <div class="logo">Extreme'D Audio & Enterprise</div>
         <nav>
             <a href="#home">Home</a>
             <a href="#services">Layanan</a>
@@ -25,7 +25,20 @@
             <a href="#gallery" class="cta-btn">Lihat Portofolio</a>
         </div>
     </section>
-
+    <section class="stats-section">
+    <div class="stat-box">
+        <h2 class="counter" data-target="150">0</h2>
+        <p>Event Sukses</p>
+    </div>
+    <div class="stat-box">
+        <h2 class="counter" data-target="50">0</h2>
+        <p>Total Item Sound & Lighting</p>
+    </div>
+    <div class="stat-box">
+        <h2 class="counter" data-target="99">0</h2>
+        <p>% Klien Puas</p>
+    </div>
+    </section>
     <section id="services" class="services">
         <h2>Layanan Kami</h2>
         <div class="card-container">
@@ -43,7 +56,7 @@
     <section id="gallery" class="gallery">
         <h2>Galeri Event Terakhir</h2>
         <div class="gallery-grid" id="galleryGrid">
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=500" alt="Event 1"><p>Konser Musik Akbar</p></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=500" alt="Event 1"><p>Konser Pestival Music</p></div>
             <div class="gallery-item"><img src="https://images.unsplash.com/photo-1465847899084-d164df4dedc6?q=80&w=500" alt="Event 2"><p>Wedding Party</p></div>
         </div>
     </section>
@@ -55,7 +68,7 @@
                 <h3>Hubungi Kami</h3>
                 <p>Siap memeriahkan event Anda 24/7. Konsultasikan kebutuhan sound & lighting Anda sekarang!</p>
                 <!-- Ganti nomor di bawah dengan nomor WhatsApp Anda (gunakan kode negara 62) -->
-                <a href="https://wa.me/6281234567890?text=Halo%20SoundLight%20Pro,%20saya%20tertarik%20untuk%20rental..." target="_blank" class="wa-btn">
+                <a href="https://wa.me/6285162575611?text=Halo%20SoundLight%20Pro,%20saya%20tertarik%20untuk%20rental..." target="_blank" class="wa-btn">
                     <i class="fab fa-whatsapp"></i> Hubungi via WhatsApp
                 </a>
             </div>
@@ -77,6 +90,56 @@
             <p>&copy; 2026 SoundLight Pro. All Rights Reserved.</p>
         </div>
     </footer>
+<script>
+        // Fungsi untuk memuat foto dari LocalStorage
+        function loadGallery() {
+            const galleryGrid = document.getElementById('galleryGrid');
+            const localData = localStorage.getItem('eventGallery');
+            
+            // Jika ada data di LocalStorage, tampilkan
+            if (localData) {
+                const events = JSON.parse(localData);
+                
+                // Kosongkan dulu galeri default (opsional, agar tidak menumpuk)
+                galleryGrid.innerHTML = ''; 
+                
+                events.forEach(event => {
+                    const item = document.createElement('div');
+                    item.className = 'gallery-item';
+                    item.innerHTML = `
+                        <img src="${event.img}" alt="${event.title}">
+                        <p>${event.title}</p>
+                    `;
+                    galleryGrid.appendChild(item);
+                });
+            }
+        }
 
+        // Jalankan fungsi saat halaman index dibuka
+        window.onload = loadGallery;
+        // --- FITUR COUNTER ANGKA BERJALAN ---
+    const counters = document.querySelectorAll('.counter');
+    
+    counters.forEach(counter => {
+        counter.innerText = '0';
+        
+        const updateCounter = () => {
+            const target = +counter.getAttribute('data-target'); // Mengubah string ke angka
+            const count = +counter.innerText;
+            
+            // Mengatur kecepatan bertambahnya angka
+            const increment = target / 50; 
+            
+            if(count < target) {
+                counter.innerText = `${Math.ceil(count + increment)}`;
+                setTimeout(updateCounter, 30); // Ulangi setiap 30 milidetik
+            } else {
+                counter.innerText = target + (target === 99 ? '%' : '+'); // Beri tanda % atau + di akhir
+            }
+        };
+        
+        updateCounter();
+    });
+    </script>
 </body>
 </html>

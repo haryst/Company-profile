@@ -269,3 +269,21 @@ footer {
     border-radius: 5px;
     cursor: pointer;
 }
+/* Style untuk Section Statistik */
+.stats-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 40px 5%;
+    background: #ff0055;
+    color: white;
+    text-align: center;
+}
+.stat-box h2 {
+    font-size: 40px;
+    margin-bottom: 5px;
+}
+.stat-box p {
+    font-size: 16px;
+    font-weight: 500;
+}
