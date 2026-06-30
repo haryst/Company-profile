@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin - Upload Event</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-dash">
+
+    <div class="dashboard-container">
+        <header class="dash-header">
+            <h2>Dashboard Admin</h2>
+            <a href="index.html" class="btn-back">Kembali ke Web</a>
+        </header>
+
+        <main class="dash-content">
+            <div class="upload-box">
+                <h3>Tambah Foto Event Baru</h3>
+                <form id="uploadForm">
+                    <label>Nama/Judul Event</label>
+                    <input type="text" id="eventTitle" placeholder="Contoh: Konser Band Indie" required>
+
+                    <label>Link Foto (URL) / Pilih File</label>
+                    <input type="text" id="eventImg" placeholder="Masukkan URL Gambar (sementara)" required>
+                    
+                    <button type="submit" class="btn-submit">Simpan & Publikasikan</button>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Simulasi logika penyimpanan sementara menggunakan LocalStorage
+        document.getElementById('uploadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const title = document.getElementById('eventTitle').value;
+            const imgUrl = document.getElementById('eventImg').value;
+
+            // Catatan: Ini hanya simulasi frontend lokal agar Anda paham alurnya.
+            alert('Foto "' + title + '" berhasil ditambahkan! (Simulasi)');
+            
+            // Reset form
+            document.getElementById('uploadForm').reset();
+        });
+    </script>
+</body>
+</html>
