@@ -79,7 +79,7 @@ nav a:hover {
 
 /* Services */
 .services {
-    padding: 60px 5%;
+    padding: 80px 5%;
     text-align: center;
     background: #181818;
 }
@@ -98,10 +98,24 @@ nav a:hover {
 }
 .card {
     background: #222;
-    padding: 30px;
+    padding: 40px 30px;
     border-radius: 8px;
     width: 300px;
     border-top: 4px solid #ff0055;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+.card h3 {
+    margin-bottom: 15px;
+    font-size: 22px;
+    color: #ffffff; 
+    font-weight: 700;
+}
+
+.card p {
+    font-size: 15px; 
+    line-height: 1.6;
+    color: #ffffff;
+    font-weight: 400;
 }
 
 /* Gallery */
@@ -136,7 +150,7 @@ footer {
     padding: 20px;
     background: #1a1a1a;
     font-size: 14px;
-    color: #666;
+    color: #ffffff;
 }
 
 /* Dashboard Khusus */
@@ -194,32 +208,26 @@ footer {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background-color: #25D366; /* Warna Hijau Resmi WhatsApp */
+    background-color: #25D366; 
     color: #ffffff;
     text-decoration: none;
     font-weight: bold;
     font-size: 16px;
     padding: 12px 24px;
     border-radius: 8px;
-    gap: 10px; /* Jarak antara logo WhatsApp dan Teks */
+    gap: 10px; 
     box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
     transition: all 0.3s ease;
     margin-bottom: 25px;
 }
-
-/* Mengatur Ukuran Logo WhatsApp di Dalam Tombol */
 .wa-btn-nego .wa-icon {
     font-size: 22px; 
 }
-
-/* Efek Interaktif Saat Kursor Menyorot Tombol (Hover) */
 .wa-btn-nego:hover {
-    background-color: #1ebd54; /* Warna hijau sedikit lebih gelap saat di-hover */
+    background-color: #1ebd54; 
     box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
-    transform: translateY(-3px); /* Tombol sedikit terangkat */
+    transform: translateY(-3px);
 }
-
-/* Efek Saat Tombol Diklik (Active) */
 .wa-btn-nego:active {
     transform: translateY(-1px);
 }
@@ -227,25 +235,21 @@ footer {
     color: #aaa;
     font-size: 14px;
     line-height: 1.6;
-    margin-bottom: 25px; /* <--- Tambah atau perbesar nilai ini untuk mengatur jarak spasi ke bawah */
+    margin-bottom: 25px; 
 }
-/* --- Desain Font Baru untuk Logo --- */
 .logo {
-    font-family: 'Orbitron', sans-serif; /* Mengubah font khusus untuk logo */
+    font-family: 'Orbitron', sans-serif; 
     font-size: 26px;
-    font-weight: 700; /* Membuat tulisan tebal */
+    font-weight: 700; 
     color: #ff0055;
-    letter-spacing: 1px; /* Memberi jarak tipis antar huruf agar estetik */
-    text-transform: uppercase; /* Membuat semua huruf menjadi kapital (opsional) */
-    
-    /* Efek opsional: memberi sedikit kilauan lampu neon pada teks logo */
+    letter-spacing: 1px; 
+    text-transform: uppercase; 
     text-shadow: 0 0 10px rgba(255, 0, 85, 0.3); 
 }
-/* --- 1. Pengaturan untuk Layar Tablet & HP (Lebar Maksimal 768px) --- */
 @media screen and (max-width: 768px) {
     /* Navbar */
     header {
-        flex-direction: column; /* Menyusun logo dan menu ke bawah */
+        flex-direction: column; 
         gap: 15px;
         padding: 15px 5%;
         text-align: center;
@@ -253,7 +257,7 @@ footer {
     
     nav {
         display: flex;
-        flex-wrap: wrap; /* Menu otomatis turun ke bawah jika layar terlalu sempit */
+        flex-wrap: wrap;
         justify-content: center;
         gap: 10px;
     }
@@ -275,52 +279,50 @@ footer {
     }
     
     .hero-text h1 {
-        font-size: 32px; /* Memperkecil ukuran font judul di HP agar tidak terpotong */
+        font-size: 32px; 
     }
     
     .hero-text p {
         font-size: 16px;
     }
 
-    /* Statistik Konten (Angka Berjalan) */
     .stats-section {
-        flex-direction: column; /* Menyusun angka statistik ke bawah di HP */
+        flex-direction: column; 
         gap: 30px;
         padding: 40px 20px;
     }
 
     /* Bagian Footer */
     .footer-container {
-        flex-direction: column; /* Kolom kiri dan kanan berbaris ke bawah */
+        flex-direction: column; 
         text-align: center;
         gap: 30px;
     }
 
     .social-icons {
-        justify-content: center; /* Merapikan logo sosmed ke tengah layar HP */
+        justify-content: center; 
     }
 }
 
-/* --- 2. Pengaturan khusus untuk Layar HP Kecil (Lebar Maksimal 480px) --- */
 @media screen and (max-width: 480px) {
     .logo {
-        font-size: 22px; /* Ukuran tulisan logo lebih pas untuk HP */
+        font-size: 22px;
     }
     
     nav a {
-        font-size: 13px; /* Memperkecil menu navigasi */
+        font-size: 13px; 
     }
 
     .card {
-        width: 100%; /* Kartu layanan akan melebar penuh mengikuti lebar layar HP */
+        width: 100%; 
     }
 
     .gallery-grid {
-        grid-template-columns: 1fr; /* Galeri foto menjadi 1 kolom vertikal ke bawah */
+        grid-template-columns: 1fr; 
     }
     
     .wa-btn-nego {
-        width: 100%; /* Tombol WhatsApp memenuhi lebar layar agar mudah ditekan jempol */
+        width: 100%; 
         font-size: 15px;
     }
 
@@ -336,7 +338,6 @@ footer {
         gap: 10px;
     }
     
-    /* Membuat tabel CRUD bisa di-geser (scroll) ke samping di HP agar tidak rusak */
     .manage-box {
         overflow-x: auto; 
     }
@@ -344,4 +345,61 @@ footer {
     #crudTable {
         min-width: 500px;
     }
+}
+/* Tombol Paket Sewa (Utama) */
+.btn-primary {
+    background: #ff0055;
+    color: #fff;
+    border: 2px solid #ffffff;
+}
+.btn-primary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Tombol Portofolio (Sekunder) */
+.btn-secondary {
+    background: #ff0055;
+    color: #fff;
+    border: 2px solid #ffffff;
+}
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+/* --- Media Query: Jika di layar Laptop/Desktop, buat tombol berdampingan --- */
+@media screen and (min-width: 769px) {
+    .hero-buttons {
+        flex-direction: row; /* Berdampingan di layar lebar */
+        justify-content: center;
+    }
+}
+#packages .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+#packages .card:hover {
+    transform: translateY(-8px);
+    border-color: #ff0055 !important;
+}
+body.light-theme #packages {
+    background-color: #f8f9fa !important;
+    color: #121212 !important;
+}
+body.light-theme #packages .card.bg-dark {
+    background-color: #ffffff !important;
+    color: #121212 !important;
+    border-color: #dee2e6 !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+body.light-theme #packages .card.bg-dark .card-title {
+    color: #121212 !important;
+}
+body.light-theme #packages .card.bg-dark .text-secondary,
+body.light-theme #packages .card.bg-dark .text-light {
+    color: #495057 !important;
+}
+body.light-theme #packages .card[style*="background-color: #22141f"] {
+    background-color: #fff5f7 !important;
+    color: #121212 !important;
 }
